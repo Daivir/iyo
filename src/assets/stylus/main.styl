@@ -1,0 +1,19 @@
+@import './_typography.styl'
+@import '~vuetify/src/stylus/main'
+
+// *
+//   outline-offset -1px
+//   outline 1px solid red
+
+.slogan
+  font-weight: $font-weights.light
+
+.toolbar
+  .btn
+    font-weight: $font-weights.regular
+    opacity .8
+    &:hover
+      transition opacity .25s
+      opacity 1
+      .btn__content:before
+        background-color transparent

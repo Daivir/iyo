@@ -1,0 +1,67 @@
+$font-size = 14px
+$font-family = Roboto, sans-serif
+
+$font-weights = {
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900
+}
+
+$font-styles = {
+  display-4:  { size: 112px, weight: light, spacing: .25 },
+  display-3:  { size: 56px, weight: regular, spacing: .25 },
+  display-2:  { size: 45px, weight: regular, spacing: 0 },
+  display-1:  { size: 34px, weight: regular, spacing: .25 },
+  headline:   { size: 24px, weight: medium, spacing: 1.25 },
+  title:      { size: 20px, weight: regular, spacing: .15 },
+  subheading: { size: 16px, weight: regular, spacing: .15 },
+  button:     { size: 14px, weight: medium, spacing: 1.25 }
+}
+
+html
+  font-size $font-size
+
+make-font-type(type)
+  $type = $font-styles[type]
+  font-family $font-family
+  font-size: $type.size
+  font-weight: $font-weights[$type[weight]]
+  letter-spacing: ($type.spacing / $type.size)em
+
+font-type()
+  make-font-type(arguments)
+
+h3, .display-2
+  font-type display-2
+  line-height 50px
+  opacity .54
+
+h4, .display-1
+  font-type display-1
+  line-height 40px
+  opacity .54
+
+h5, .headline
+  font-type headline
+  line-height 32px
+  opacity .87
+
+h6, .title
+  font-type title
+  line-height 28px
+  opacity .87
+
+.subheading
+  font-type subheading
+  line-height 22px
+  opacity .87
+
+button, .btn
+  font-type button
+  line-height 36px
+  text-transform uppercase
+  .btn__content
+    opacity .87
